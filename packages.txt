@@ -263,6 +263,7 @@ usbutils
 uwsm
 vesktop-bin
 vim
+visual-studio-code-bin
 vlc-plugins-all
 vulkan-radeon
 waybar
