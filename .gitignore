@@ -1,0 +1,5 @@
+.cache
+.mozilla
+.steam
+node_modules
+*.log

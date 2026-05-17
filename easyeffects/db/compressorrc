@@ -1,0 +1,12 @@
+[sie][Compressor#0]
+attack=10
+makeup=3
+ratio=3
+threshold=-18
+
+[soe][Compressor#0]
+knee=0
+makeup=1
+outputGain=1.5
+ratio=1.5
+threshold=-14
