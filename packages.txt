@@ -259,6 +259,7 @@ usage
 usb_modeswitch
 usbutils
 uwsm
+vesktop-bin
 vim
 vlc-plugins-all
 vulkan-radeon
