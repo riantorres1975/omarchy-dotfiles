@@ -48,3 +48,15 @@
 --     column_width = 0.97,
 --   },
 -- })
+
+hl.config({
+  general = {
+    col = {
+      active_border = "rgb(60a5fa)",
+      inactive_border = "rgb(1e3a5f)",
+    },
+  },
+})
+
+-- Battle.net / Wine: prevent ghost windows from stealing focus.
+o.window({ class = "steam_app_default", title = "^$" }, { no_focus = true })

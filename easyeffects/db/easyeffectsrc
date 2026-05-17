@@ -14,10 +14,10 @@ visiblePlugin=gate#0
 mostUsedPresets=Default,G733,DACFOSI
 outputDevice=alsa_output.pci-0000_0b_00.4.iec958-stereo
 plugins=equalizer#0,bass_enhancer#0,compressor#0,limiter#0
-usedPresets=Default:6,G733:5,DACFOSI:2
+usedPresets=Default:6,G733:5,DACFOSI:4
 visiblePage=pluginsPage
 visiblePlugin=equalizer#0
 
 [Window]
 height=688
-width=2536
+width=1261
