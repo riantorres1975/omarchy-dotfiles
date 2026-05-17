@@ -182,6 +182,7 @@ obsidian
 omarchy-nvim
 omarchy-walker
 opencl-mesa
+opencode
 openssh
 os-prober
 pacman-contrib
@@ -196,6 +197,7 @@ pkgfile
 playerctl
 plocate
 plymouth
+pnpm
 polkit-gnome
 polkit-kde-agent
 poppler-glib
