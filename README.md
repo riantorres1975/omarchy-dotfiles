@@ -1,6 +1,29 @@
-# Dotfiles — Setup Omarchy + Hyprland
+# Dotfiles — Omarchy + Hyprland (CachyOS)
 
-Configuraciones personales para CachyOS con Hyprland, Waybar, Kitty, Alacritty, Fish y más.
+Configuraciones personales para CachyOS con Hyprland (Lua config), Waybar, Kitty, Alacritty, Fish, Ghostty, Foot, Mako, Walker y más. Tema visual: **Catppuccin Mocha**.
+
+## Contenido del repo
+
+| Directorio/Archivo | Descripción |
+|--------------------|-------------|
+| `hypr/` | Hyprland — ventanas, monitores, keybindings, animaciones, reglas |
+| `waybar/` | Barra de estado — layout, estilos, scripts (clima, calendario, cava) |
+| `kitty/` | Terminal Kitty |
+| `alacritty/` | Terminal Alacritty |
+| `foot/` | Terminal Foot |
+| `ghostty/` | Terminal Ghostty |
+| `fish/` | Shell Fish — funciones, alias, variables |
+| `omarchy/` | Temas, fondos y hooks personalizados de Omarchy |
+| `walker/` | Launcher Walker |
+| `mako/` | Notificaciones Mako |
+| `easyeffects/` | Perfiles de audio EasyEffects |
+| `fastfetch/` | Config de fastfetch |
+| `gtk-3.0/` | Tema GTK |
+| `starship.toml` | Prompt Starship |
+| `packages.txt` | Paquetes oficiales (pacman) |
+| `aur-packages.txt` | Paquetes AUR |
+
+---
 
 ## Instalación desde cero
 
@@ -54,9 +77,14 @@ cp -r ~/dotfiles/alacritty ~/.config/
 cp -r ~/dotfiles/easyeffects ~/.config/
 cp -r ~/dotfiles/fastfetch ~/.config/
 cp -r ~/dotfiles/fish ~/.config/
+cp -r ~/dotfiles/foot ~/.config/
+cp -r ~/dotfiles/ghostty ~/.config/
 cp -r ~/dotfiles/gtk-3.0 ~/.config/
 cp -r ~/dotfiles/hypr ~/.config/
 cp -r ~/dotfiles/kitty ~/.config/
+cp -r ~/dotfiles/mako ~/.config/
+cp -r ~/dotfiles/omarchy ~/.config/
+cp -r ~/dotfiles/walker ~/.config/
 cp -r ~/dotfiles/waybar ~/.config/
 cp ~/dotfiles/starship.toml ~/.config/
 ```
@@ -79,6 +107,14 @@ hyprctl reload
 ~/dotfiles/sync-dotfiles.sh
 ```
 
-Copiar configs modificadas a `~/dotfiles/`, hacer commit y push.
+Detecta automáticamente los directorios configurados, copia los cambios a `~/dotfiles/`, guarda la lista de paquetes instalados, hace commit y push.
 
-> Si el script no existe, crearlo manualmente o copiar los archivos a `~/dotfiles/` y hacer commit a mano.
+### Opciones del script
+
+```
+--dry-run        Ver qué se copiaría sin hacer cambios
+--skip-push      Commit local sin push
+--skip-packages  No regenerar packages.txt / aur-packages.txt
+--tag            Crear un tag con fecha (ej: backup-20260519-2028)
+--verbose        Mostrar detalle de cada archivo copiado
+```
