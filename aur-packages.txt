@@ -1,1 +1,3 @@
+catppuccin-cursors-mocha
+catppuccin-gtk-theme-mocha
 google-chrome

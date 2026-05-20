@@ -22,3 +22,13 @@ require("default.hypr.toggles")
 
 -- Add any other personal Hyprland configuration below.
 -- o.window("qemu", { workspace = "5" })
+
+-- Steam: forzar modo mosaico (sobreescribe el float=true del default de Omarchy)
+o.window({ class = "^steam$", title = "^Steam$" }, { tile = true })
+
+-- Calendario emergente de waybar (click en la fecha)
+o.window("calendar-popup.*", {
+  float = true,
+  move  = { "325", "57" },
+  pin   = true,
+})

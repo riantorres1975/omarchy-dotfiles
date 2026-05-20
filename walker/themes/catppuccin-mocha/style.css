@@ -1,0 +1,163 @@
+/* ================================================================
+   Walker — Catppuccin Mocha
+   Selectores propios de Walker + GTK4
+   ================================================================ */
+
+/* ── Paleta ──────────────────────────────────────────────── */
+@define-color base      #1e1e2e;
+@define-color mantle    #181825;
+@define-color crust     #11111b;
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color surface2  #585b70;
+@define-color overlay0  #6c7086;
+@define-color text      #cdd6f4;
+@define-color subtext0  #a6adc8;
+@define-color lavender  #b4befe;
+@define-color mauve     #cba6f7;
+
+/* ── Reset global ────────────────────────────────────────── */
+* {
+  all: unset;
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+  font-size: 14px;
+  color: @text;
+}
+
+/* ── Ventana: transparente (Walker ocupa pantalla completa) ── */
+window,
+.window {
+  background: transparent;
+}
+
+/* ── Contenedor real del launcher ────────────────────────── */
+.box-wrapper {
+  background: alpha(@base, 0.75);
+  border-radius: 16px;
+  border: 1px solid @surface1;
+  box-shadow: 0 8px 32px alpha(@crust, 0.8);
+  padding: 12px;
+}
+
+/* ── Barra de búsqueda ───────────────────────────────────── */
+.search-container {
+  background: @base;
+  padding: 8px 8px 4px;
+  border-radius: 12px 12px 0 0;
+}
+
+.input,
+entry {
+  background: @surface0;
+  color: @text;
+  border: 1px solid @surface1;
+  border-radius: 10px;
+  padding: 10px 14px;
+  caret-color: @mauve;
+  font-size: 15px;
+}
+
+.input:focus,
+entry:focus {
+  border-color: @mauve;
+  background: @surface1;
+}
+
+.input placeholder,
+entry placeholder {
+  color: @overlay0;
+  opacity: 1;
+}
+
+/* ── Área de resultados ──────────────────────────────────── */
+.content-container,
+.scroll,
+scrolledwindow,
+viewport {
+  background: @base;
+  border-radius: 0 0 12px 12px;
+}
+
+/* ── Ítems de la lista ───────────────────────────────────── */
+.list,
+list,
+listview {
+  background: transparent;
+  padding: 4px 0;
+}
+
+child,
+row {
+  background: transparent;
+  border-radius: 8px;
+  padding: 4px 6px;
+  transition: background 100ms ease;
+}
+
+child:hover,
+row:hover {
+  background: @surface0;
+}
+
+child:selected,
+row:selected {
+  background: alpha(@mauve, 0.15);
+}
+
+.item-box {
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+child:hover .item-box {
+  background: transparent;
+}
+
+child:selected .item-box {
+  background: alpha(@mauve, 0.35);
+  border-radius: 8px;
+}
+
+child:selected .item-box * {
+  color: @text;
+}
+
+/* ── Texto del ítem ──────────────────────────────────────── */
+.item-text,
+.item-text-box {
+  all: unset;
+  padding: 6px 0;
+  color: @text;
+  font-size: 16px;
+}
+
+.item-subtext {
+  font-size: 13px;
+  color: @subtext0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Ícono de la app ─────────────────────────────────────── */
+.item-image,
+image {
+  margin-right: 14px;
+  border-radius: 6px;
+  -gtk-icon-size: 28px;
+}
+
+.normal-icons { -gtk-icon-size: 28px; }
+.large-icons  { -gtk-icon-size: 40px; }
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+scrollbar {
+  background: transparent;
+  opacity: 0;
+}
+
+scrollbar slider {
+  background: @surface2;
+  border-radius: 4px;
+  min-width: 4px;
+}

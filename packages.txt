@@ -46,6 +46,9 @@ cachyos-wallpapers
 cachyos-zsh-config
 calf
 cantarell-fonts
+catppuccin-cursors-mocha
+catppuccin-gtk-theme-mocha
+cava
 chromium
 chwd
 claude-code
@@ -187,6 +190,7 @@ openssh
 os-prober
 pacman-contrib
 pamixer
+papirus-icon-theme
 paru
 pavucontrol
 perl

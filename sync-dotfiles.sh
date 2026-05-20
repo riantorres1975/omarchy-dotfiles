@@ -8,7 +8,7 @@ TIMESTAMP="$(date '+%Y-%m-%d %H:%M:%S')"
 # ─── configs a sincronizar (directorios y archivos sueltos) ───
 CONFIG_DIRS=(
   hypr waybar kitty easyeffects fastfetch fish gtk-3.0
-  Kvantum wofi alacritty
+  Kvantum wofi alacritty mako omarchy walker foot ghostty
 )
 CONFIG_FILES=(
   starship.toml

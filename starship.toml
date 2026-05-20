@@ -9,7 +9,7 @@ format = """
 [username]
 show_always = true
 style_user = "bold cyan"
-format = "[󰣇 $user](bold cyan) "
+format = "[󰄛 $user](bold cyan) "
 
 [hostname]
 ssh_only = false

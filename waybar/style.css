@@ -1,189 +1,207 @@
-@import "../omarchy/current/theme/waybar.css";
+/* ================================================================
+   Waybar — Catppuccin Mocha · estructura PrawnBalls/dotfiles
+   Compatible con Omarchy (sin deps externos)
+   ================================================================ */
+
+@import "theme.css";
 
 * {
-  background-color: @background;
-  color: @foreground;
-
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 12px;
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: bold;
+    font-size: 12px;
+    min-height: 10px;
 }
 
-.modules-left {
-  margin-left: 8px;
+/* ── Barra ───────────────────────────────────────────────── */
+window#waybar {
+    background: transparent;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
 
-.modules-right {
-  margin-right: 8px;
+/* GTK overrides — fuerza transparencia aunque el tema GTK ponga fondo */
+window#waybar > * {
+    background: transparent;
 }
 
-#workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
-}
-
-#workspaces button.empty {
-  opacity: 0.5;
-}
-
-#cpu,
-#battery,
-#pulseaudio,
-#custom-omarchy,
-#custom-update {
-  min-width: 12px;
-  margin: 0 7.5px;
-}
-
-#tray {
-  margin-right: 16px;
-}
-
-#bluetooth {
-  margin-right: 17px;
-}
-
-#network {
-  margin-right: 13px;
-}
-
-#custom-expand-icon {
-  margin-right: 18px;
-}
-
+/* ── Tooltips ────────────────────────────────────────────── */
 tooltip {
-  padding: 2px;
+    background: @col-mantle;
+    color: @main-fg;
+    border-radius: 8px;
+    border-width: 0;
+}
+tooltip label {
+    font-size: 11px;
 }
 
-#custom-update {
-  font-size: 10px;
+/* ── Workspaces ──────────────────────────────────────────── */
+#workspaces button {
+    all: unset;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    outline: none;
+    padding: 2px 8px;
+    border-radius: 99px;
+    margin: 3px 2px;
+    color: inherit;
+    background: transparent;
+    font-size: 24px;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#clock {
-  margin-left: 8.75px;
+#workspaces button.active {
+    background: transparent;
+    color: inherit;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-size: 28px;
 }
 
-#custom-weather {
-  margin-left: 7.5px;
-  margin-right: 7.5px;
-  min-width: 14px;
+#workspaces button:hover {
+    color: #f5c2e7;
+    background: transparent;
 }
 
-#custom-weather.unavailable {
-  min-width: 0;
-  margin: 0;
-  padding: 0;
+#workspaces button.occupied {
+    color: #89dceb;
 }
 
-.hidden {
-  opacity: 0;
+#workspaces button.urgent {
+    color: @col-crit;
+    background: transparent;
 }
 
+#workspaces,
+#window {
+    padding: 0;
+}
+
+/* ── Todos los módulos en pills ──────────────────────────── */
+#cpu,
+#memory,
+#temperature,
+#disk,
+#network,
+#pulseaudio,
+#clock.date,
+#clock.time,
+#custom-weather,
+#custom-update,
 #custom-screenrecording-indicator,
-#custom-idle-indicator,
-#custom-notification-silencing-indicator {
-  min-width: 12px;
-  margin-left: 5px;
-  margin-right: 0;
-  font-size: 10px;
-  padding-bottom: 1px;
+#window,
+#workspaces,
+#tray,
+#custom-l_end,
+#custom-r_end {
+    color: @main-fg;
+    background: @main-bg;
+    margin: 3px 0;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
-#custom-screenrecording-indicator.active {
-  color: #a55555;
+/* ── Caps de pill ────────────────────────────────────────── */
+#custom-r_end {
+    border-radius: 0 19px 19px 0;
+    margin-right: 8px;
+    padding-right: 2px;
 }
 
-#custom-idle-indicator.active,
-#custom-notification-silencing-indicator.active {
-  color: #a55555;
+#custom-l_end {
+    border-radius: 19px 0 0 19px;
+    margin-left: 8px;
+    padding-left: 2px;
 }
 
-#custom-voxtype {
-  min-width: 12px;
-  margin: 0 0 0 7.5px;
+/* ── Botón de menú (gatito) ──────────────────────────────── */
+#custom-omarchy {
+    background: @main-bg;
+    color: #f5c2e7;
+    font-size: 24px;
+    border-radius: 19px;
+    padding: 3px 18px 0px 13px;
+    margin: 3px 6px 3px 8px;
+    transition: color 0.2s ease;
+}
+#custom-omarchy:hover {
+    color: #cba6f7;
 }
 
-#custom-voxtype.recording {
-  color: #a55555;
+/* ── Tray ────────────────────────────────────────────────── */
+#tray {
+    border-radius: 19px;
+    margin-right: 8px;
+    padding: 0 8px;
 }
 
-.left .modules-left, .right .modules-left { margin: 8px 0 0 0; }
-.left .modules-right, .right .modules-right { margin: 0 0 8px 0; }
-
-.left #workspaces button, .right #workspaces button {
-  padding: 6px 0;
-  margin: 1.5px 0;
+#tray menu * {
+    min-height: 16px;
+}
+#tray menu separator {
+    min-height: 10px;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: rgba(243, 139, 168, 0.2);
+    border-radius: 6px;
 }
 
-.left #cpu, .right #cpu,
-.left #battery, .right #battery,
-.left #pulseaudio, .right #pulseaudio,
-.left #custom-omarchy, .right #custom-omarchy,
-.left #custom-update, .right #custom-update {
-  margin: 1.5px 0;
-  padding: 6px 0;
-  min-width: 0;
-  min-height: 12px;
+/* ── Colores por módulo ──────────────────────────────────── */
+#cpu              { color: @col-cpu; }
+#cpu.warning      { color: @col-warn; }
+#cpu.critical     { color: @col-crit; }
+
+#memory           { color: @col-mem; }
+#memory.warning   { color: @col-warn; }
+#memory.critical  { color: @col-crit; }
+
+#temperature          { color: @col-temp; }
+#temperature.critical { color: @col-crit; }
+
+#disk             { color: @col-disk; }
+
+#network              { color: @col-net; }
+#network.disconnected { color: @col-crit; }
+
+#pulseaudio       { color: @col-audio; }
+#pulseaudio.muted { color: @col-muted; }
+
+#clock.date { color: @col-date; }
+#clock.time { color: @main-fg; }
+
+#custom-weather { color: #89dceb; }
+
+/* ── Pill de música (cava = cap izq, mpris = cap der) ─────── */
+#custom-cava {
+    background: @main-bg;
+    color: #a6e3a1;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-radius: 19px 0 0 19px;
+    margin: 3px 0 3px 8px;
+    padding: 0 4px 0 8px;
 }
 
-.left #tray, .right #tray { margin: 0 0 16px 0; }
-.left #bluetooth, .right #bluetooth { margin: 1.5px 0; padding: 6px 0; min-height: 12px; }
-.left #network, .right #network { margin: 1.5px 0; padding: 6px 0; min-height: 12px; }
-.left #custom-expand-icon, .right #custom-expand-icon { margin: 1.5px 0; padding: 6px 0; min-height: 12px; }
-.left #clock, .right #clock { margin: 8.75px 0 0 0; }
-.left #custom-weather, .right #custom-weather { margin: 1.5px 0; padding: 6px 0; min-height: 12px; min-width: 14px; margin-right: 4px; }
+#mpris {
+    background: @main-bg;
+    color: #a6e3a1;
+    border-radius: 0 19px 19px 0;
+    margin: 3px 8px 3px 0;
+    padding: 0 8px 0 4px;
+}
+#mpris.paused { color: #6c7086; }
 
-.left #custom-screenrecording-indicator, .right #custom-screenrecording-indicator,
-.left #custom-idle-indicator, .right #custom-idle-indicator,
-.left #custom-notification-silencing-indicator, .right #custom-notification-silencing-indicator {
-  margin: 5px 0 0 0;
-  min-width: 0;
-  min-height: 12px;
+#window {
+    color: @col-sub;
+    font-style: italic;
+    font-weight: normal;
 }
 
-.left #custom-voxtype, .right #custom-voxtype { margin: 7.5px 0 0 0; min-width: 0; min-height: 12px; }
-
-#custom-expand-icon.vertical,
-.left #custom-expand-icon.horizontal,
-.right #custom-expand-icon.horizontal {
-  opacity: 0;
-  font-size: 0;
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.left #custom-expand-icon.vertical,
-.right #custom-expand-icon.vertical {
-  opacity: 1;
-  font-size: inherit;
-  min-width: 0;
-  min-height: 12px;
-  margin: 1.5px 0;
-  padding: 6px 0;
-}
-
-#clock.vertical,
-.left #clock.horizontal,
-.right #clock.horizontal {
-  opacity: 0;
-  font-size: 0;
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.left #clock.vertical,
-.right #clock.vertical {
-  opacity: 1;
-  font-size: inherit;
-  min-width: 0;
-  min-height: 12px;
-  margin: 8.75px 0 0 0;
-}
+#custom-update                  { color: @col-update; }
+#custom-update.pending          { color: @col-warn; }
+#custom-screenrecording-indicator { color: @col-rec; }
