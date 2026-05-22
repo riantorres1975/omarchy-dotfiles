@@ -101,5 +101,14 @@ hl.config({
 hl.env("GTK_THEME", "catppuccin-mocha-mauve-standard+default")
 hl.env("GTK_APPLICATION_PREFER_DARK_THEME", "1")
 
+-- Cursor: Adwaita (desactiva Hyprcursor para que no auto-detecte los temas Catppuccin)
+hl.config({
+  cursor = {
+    enable_hyprcursor = false,
+    no_hardware_cursors = true,
+  },
+})
+hl.env("XCURSOR_THEME", "Adwaita")
+
 -- Battle.net / Wine: prevent ghost windows from stealing focus.
 o.window({ class = "steam_app_default", title = "^$" }, { no_focus = true })

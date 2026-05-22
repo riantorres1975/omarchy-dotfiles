@@ -7,8 +7,9 @@ TIMESTAMP="$(date '+%Y-%m-%d %H:%M:%S')"
 
 # ─── configs a sincronizar (directorios y archivos sueltos) ───
 CONFIG_DIRS=(
-  hypr waybar kitty easyeffects fastfetch fish gtk-3.0
+  hypr waybar kitty easyeffects fastfetch fish gtk-3.0 gtk-4.0
   Kvantum wofi alacritty mako omarchy walker foot ghostty
+  btop git lazygit swayosd
 )
 CONFIG_FILES=(
   starship.toml
@@ -116,7 +117,19 @@ else
 fi
 
 # ──────────────────────────────────────────────────
-# 4. .gitignore
+# 4. dconf dump (settings de gsettings/GNOME, ej: button-layout)
+# ──────────────────────────────────────────────────
+if ! $DRY_RUN; then
+  if command -v dconf &>/dev/null; then
+    msg "Guardando configuración dconf..."
+    dconf dump / > "$DOTFILES/dconf-settings.ini"
+  fi
+else
+  info "Generaría dconf-settings.ini"
+fi
+
+# ──────────────────────────────────────────────────
+# 5. .gitignore
 # ──────────────────────────────────────────────────
 if ! $DRY_RUN; then
   cat > "$DOTFILES/.gitignore" <<'EOF'
@@ -129,7 +142,7 @@ EOF
 fi
 
 # ──────────────────────────────────────────────────
-# 5. Git
+# 6. Git
 # ──────────────────────────────────────────────────
 cd "$DOTFILES"
 

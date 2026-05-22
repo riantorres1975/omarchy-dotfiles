@@ -1,24 +1,40 @@
 #!/usr/bin/env bash
-CITY="Uruapan,Michoacan,Mexico"
 
-DATA=$(curl -sf --max-time 5 "https://wttr.in/${CITY}?format=j1" 2>/dev/null)
+DATA=$(curl -sf --max-time 5 "https://wttr.in/?format=j1" 2>/dev/null)
 if [[ -z "$DATA" ]]; then
     printf '{"text":"󰖙 --","tooltip":"Sin conexión"}'
     exit 0
 fi
 
-python3 - "$DATA" <<'PYEOF'
+TMPJSON=$(mktemp --suffix=.json)
+printf '%s' "$DATA" > "$TMPJSON"
+
+python3 - "$TMPJSON" <<'PYEOF'
 import json, sys
 from datetime import datetime
 
-data = json.loads(sys.argv[1])
-current = data['current_condition'][0]
+with open(sys.argv[1], encoding='utf-8') as f:
+    data = json.load(f)
+
+current  = data['current_condition'][0]
 code     = int(current['weatherCode'])
 temp     = current['temp_C']
 feels    = current['FeelsLikeC']
 desc     = current['weatherDesc'][0]['value']
 humidity = current['humidity']
 wind     = current['windspeedKmph']
+
+def fix_enc(s):
+    try:
+        return s.encode('latin-1').decode('utf-8')
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        return s
+
+area     = data['nearest_area'][0]
+city     = fix_enc(area['areaName'][0]['value'])
+region   = fix_enc(area['region'][0]['value'])
+country  = fix_enc(area['country'][0]['value'])
+location = f"{city}, {region}, {country}"
 
 astronomy = data['weather'][0]['astronomy'][0]
 sunrise   = astronomy['sunrise']
@@ -43,11 +59,13 @@ def icon(code, day):
     return "󰖗"
 
 ico  = icon(code, is_day)
-text = f"{ico} {temp}°C  st {feels}°C"
-tip  = (f"Uruapan, Michoacán\n"
+text = f"{ico} {temp}°C"
+tip  = (f"{location}\n"
         f"{desc}\n"
-        f"🌡 {temp}°C  (sensación {feels}°C)  💧 {humidity}%  💨 {wind} km/h\n"
-        f"🌅 {sunrise}  🌇 {sunset}")
+        f"Temp {temp}°C  (sensacion {feels}°C)  Hum {humidity}%  Viento {wind} km/h\n"
+        f"Amanecer {sunrise}  Atardecer {sunset}")
 
 print(json.dumps({"text": text, "tooltip": tip}))
 PYEOF
+
+rm -f "$TMPJSON"

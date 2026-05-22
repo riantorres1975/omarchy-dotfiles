@@ -46,7 +46,6 @@ cachyos-wallpapers
 cachyos-zsh-config
 calf
 cantarell-fonts
-catppuccin-cursors-mocha
 catppuccin-gtk-theme-mocha
 cava
 chromium
@@ -170,6 +169,7 @@ nano
 nano-syntax-highlighting
 nautilus
 nautilus-python
+ncspot
 neovim
 netctl
 networkmanager

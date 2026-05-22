@@ -51,13 +51,13 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "1":       "<span color='#ff0000'>ᗣ</span>",
-      "2":       "<span color='#ffb8ff'>ᗣ</span>",
-      "3":       "<span color='#00ffff'>ᗣ</span>",
-      "4":       "<span color='#ffb847'>ᗣ</span>",
-      "5":       "<span color='#cba6f7'>ᗣ</span>",
-      "active":  "<span color='#ffe000'>ᗧ··</span>",
-      "urgent":  "<span color='#f38ba8'>ᗣ</span>"
+      "1":       "<span color='#00FFFF'>ᗣ</span>",
+      "2":       "<span color='#FFB8FF'>ᗣ</span>",
+      "3":       "<span color='#FF0000'>ᗣ</span>",
+      "4":       "<span color='#FFB847'>ᗣ</span>",
+      "5":       "<span color='#00FFFF'>ᗣ</span>",
+      "active":  "<span color='#FFD700'>ᗧ··</span>",
+      "urgent":  "<span color='#FF0000'>ᗣ</span>"
     },
     "persistent-workspaces": {
       "1": [], "2": [], "3": [], "4": [], "5": []
