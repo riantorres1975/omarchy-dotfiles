@@ -1,23 +1,23 @@
 [Presets]
-lastLoadedInputPreset=g733mic
-lastLoadedOutputPreset=DACFOSI
+lastLoadedInputPreset=g733mic-Broadcast
+lastLoadedOutputPreset=OmniForge
 
 [StreamInputs]
 inputDevice=alsa_input.usb-Logitech_G733_Gaming_Headset-00.mono-fallback
-mostUsedPresets=g733mic
-plugins=gate#0,compressor#0,equalizer#0,exciter#0,limiter#0
-usedPresets=g733mic:1
+mostUsedPresets=g733mic-Broadcast,g733mic-Apex,g733mic
+plugins=gate#0,equalizer#0,compressor#0,exciter#0,deesser#0,limiter#0
+usedPresets=g733mic:1,g733mic-Apex:1,g733mic-Broadcast:4
 visiblePage=pluginsPage
 visiblePlugin=gate#0
 
 [StreamOutputs]
-mostUsedPresets=Default,DACFOSI,G733
+mostUsedPresets=HE400SE-Detail,OmniForge,HE400SE_Q4_Gaming,PhantomStep,G733-Apex
 outputDevice=alsa_output.pci-0000_0b_00.4.iec958-stereo
-plugins=equalizer#0,bass_enhancer#0,compressor#0,limiter#0
-usedPresets=Default:6,G733:5,DACFOSI:5
+plugins=equalizer#0,compressor#0,bass_enhancer#0,stereo_tools#0,limiter#0
+usedPresets=HE400SE-Detail:86,HE400SE_Q4_Gaming:10,PhantomStep:7,OmniForge:13,G733-Apex:6
 visiblePage=pluginsPage
 visiblePlugin=equalizer#0
 
 [Window]
-height=900
-width=1300
+height=680
+width=1261

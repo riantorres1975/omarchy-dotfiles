@@ -200,6 +200,15 @@ tooltip label {
 }
 #mpris.paused { color: #6c7086; }
 
+#custom-cava.hidden,
+#mpris.stopped {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    border-radius: 0;
+}
+
 #window {
     color: @col-sub;
     font-style: italic;

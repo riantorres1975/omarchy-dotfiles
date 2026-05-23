@@ -103,6 +103,7 @@
   // ── Visualizador cava ────────────────────────────────────────
   "custom/cava": {
     "exec": "~/.config/waybar/cava.sh",
+    "return-type": "json",
     "format": "{}",
     "tooltip": false
   },
@@ -181,15 +182,17 @@
 
   // ── Audio ───────────────────────────────────────────────────
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟 mute",
+    "format": "{icon}",
+    "on-click": "omarchy-launch-audio",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
     "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"],
-      "headphone": "󰋋",
-      "headset": "󰋎"
-    },
-    "on-click": "pavucontrol",
-    "tooltip-format": "{desc}\n{volume}%"
+      "headphone": "",
+      "headset": "",
+      "default": ["", "", ""]
+    }
   },
 
   "tray": {

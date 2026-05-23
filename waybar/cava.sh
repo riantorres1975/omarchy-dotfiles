@@ -9,16 +9,7 @@ cleanup() {
 }
 trap cleanup EXIT TERM INT
 
-while true; do
-    # Espera hasta que haya un player activo
-    if ! playerctl $IGNORE status &>/dev/null; then
-        [[ -n "$CAVA_PID" ]] && kill "$CAVA_PID" 2>/dev/null && CAVA_PID=""
-        echo ""
-        sleep 2
-        continue
-    fi
-
-    # Lanza cava si no está corriendo
+start_cava() {
     if [[ -z "$CAVA_PID" ]] || ! kill -0 "$CAVA_PID" 2>/dev/null; then
         cava -p "$HOME/.config/waybar/cava.ini" | while IFS= read -r line; do
             out=""
@@ -27,10 +18,33 @@ while true; do
                 [[ "$v" =~ ^[0-7]$ ]] || continue
                 out+="${BARS[$v]}"
             done
-            [[ -n "$out" ]] && printf '%s\n' "$out"
+            [[ -n "$out" ]] && printf '{"text":"%s"}\n' "$out"
         done &
         CAVA_PID=$!
     fi
+}
 
-    sleep 2
+stop_cava() {
+    [[ -n "$CAVA_PID" ]] && kill "$CAVA_PID" 2>/dev/null && CAVA_PID=""
+    printf '{"text":"","class":"hidden"}\n'
+}
+
+while true; do
+    current=$(playerctl $IGNORE status 2>/dev/null)
+    if [[ "$current" =~ ^(Playing|Paused)$ ]]; then
+        start_cava
+    else
+        stop_cava
+    fi
+
+    while IFS= read -r status; do
+        if [[ "$status" =~ ^(Playing|Paused)$ ]]; then
+            start_cava
+        else
+            stop_cava
+        fi
+    done < <(playerctl $IGNORE --follow status 2>/dev/null)
+
+    stop_cava
+    sleep 1
 done
