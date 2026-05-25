@@ -23,6 +23,9 @@ require("default.hypr.toggles")
 -- Add any other personal Hyprland configuration below.
 -- o.window("qemu", { workspace = "5" })
 
+-- Terminales: más diferencia entre activa/inactiva (override del default de Omarchy 0.97/0.90)
+o.window("(Alacritty|kitty|com.mitchellh.ghostty|foot)", { opacity = "0.97 0.78" })
+
 -- Steam: forzar modo mosaico (sobreescribe el float=true del default de Omarchy)
 o.window({ class = "^steam$", title = "^Steam$" }, { tile = true })
 
