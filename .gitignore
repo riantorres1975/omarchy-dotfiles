@@ -3,3 +3,13 @@
 .steam
 node_modules
 *.log
+
+# Imágenes y fondos de pantalla (demasiado pesados para git)
+omarchy/backgrounds/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.bmp
+*.gif
+waybar/catppuccin.png

@@ -1,7 +1,6 @@
 force_keyboard_focus = true                                                 # forces keyboard forcus to stay in Walker
 selection_wrap = true                                                       # wrap list if at bottom or top
-theme = "catppuccin-mocha"
-additional_theme_location = "~/.local/share/omarchy/default/walker/themes/"
+theme = "omarchy-dynamic"
 hide_action_hints = true                                                    # globally hide the action hints
 
 [placeholders]

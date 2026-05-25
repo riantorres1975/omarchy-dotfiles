@@ -1,6 +1,6 @@
 [Presets]
 lastLoadedInputPreset=g733mic-Broadcast
-lastLoadedOutputPreset=OmniForge
+lastLoadedOutputPreset=HE400SE-Detail
 
 [StreamInputs]
 inputDevice=alsa_input.usb-Logitech_G733_Gaming_Headset-00.mono-fallback
@@ -13,11 +13,11 @@ visiblePlugin=gate#0
 [StreamOutputs]
 mostUsedPresets=HE400SE-Detail,OmniForge,HE400SE_Q4_Gaming,PhantomStep,G733-Apex
 outputDevice=alsa_output.pci-0000_0b_00.4.iec958-stereo
-plugins=equalizer#0,compressor#0,bass_enhancer#0,stereo_tools#0,limiter#0
-usedPresets=HE400SE-Detail:86,HE400SE_Q4_Gaming:10,PhantomStep:7,OmniForge:13,G733-Apex:6
+plugins=equalizer#0,bass_enhancer#0,crystalizer#0,compressor#0,limiter#0
+usedPresets=HE400SE-Detail:95,HE400SE_Q4_Gaming:12,PhantomStep:9,OmniForge:18,G733-Apex:6
 visiblePage=pluginsPage
 visiblePlugin=equalizer#0
 
 [Window]
-height=680
-width=1261
+height=1374
+width=2536

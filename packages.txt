@@ -108,6 +108,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 hdparm
+htop
 hwdetect
 hwinfo
 hypridle
@@ -268,6 +269,7 @@ uwsm
 vesktop-bin
 vim
 visual-studio-code-bin
+vlc
 vlc-plugins-all
 vulkan-radeon
 waybar

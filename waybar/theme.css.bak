@@ -1,0 +1,30 @@
+/* Catppuccin Mocha — variables para waybar (colores originales PrawnBalls) */
+
+@define-color bar-bg      rgba(0, 0, 0, 0);  /* barra: transparente */
+@define-color main-bg     #11111b;            /* crust — fondo de pills */
+@define-color main-fg     #cdd6f4;            /* text */
+
+@define-color wb-act-bg   #a6adc8;            /* subtext0 — workspace activo */
+@define-color wb-act-fg   #313244;            /* surface0 */
+
+@define-color wb-hvr-bg   #f5c2e7;            /* pink — hover */
+@define-color wb-hvr-fg   #313244;            /* surface0 */
+
+/* Colores de acento por módulo */
+@define-color col-cpu      #89b4fa;   /* blue */
+@define-color col-mem      #a6e3a1;   /* green */
+@define-color col-temp     #fab387;   /* peach */
+@define-color col-disk     #f9e2af;   /* yellow */
+@define-color col-net      #74c7ec;   /* sapphire */
+@define-color col-audio    #cba6f7;   /* mauve */
+@define-color col-date     #b4befe;   /* lavender */
+@define-color col-warn     #f9e2af;   /* yellow */
+@define-color col-crit     #f38ba8;   /* red */
+@define-color col-update   #a6e3a1;   /* green */
+@define-color col-rec      #f38ba8;   /* red */
+@define-color col-muted    #6c7086;   /* overlay0 */
+@define-color col-sub      #a6adc8;   /* subtext0 */
+@define-color col-mauve    #cba6f7;
+@define-color col-base     #1e1e2e;
+@define-color col-mantle   #181825;
+@define-color col-surface1 #45475a;

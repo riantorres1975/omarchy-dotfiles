@@ -11,15 +11,15 @@ text = "#2d2055"
 cursor = "#c0caf5"
 
 [colors.search.matches]
-foreground = "#1a1b26"
+foreground = "#2d2055"
 background = "#e0af68"
 
 [colors.search.focused_match]
-foreground = "#1a1b26"
+foreground = "#2d2055"
 background = "#f7768e"
 
 [colors.footer_bar]
-foreground = "#1a1b26"
+foreground = "#2d2055"
 background = "#a9b1d6"
 
 [colors.selection]

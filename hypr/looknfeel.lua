@@ -49,16 +49,12 @@
 --   },
 -- })
 
--- Catppuccin Mocha
+-- Decoraciones y gaps (los colores de borde los gestiona el tema activo)
 hl.config({
   general = {
     border_size = 2,
     gaps_in = 5,
     gaps_out = 10,
-    col = {
-      active_border = "rgb(cba6f7)",   -- mauve
-      inactive_border = "rgb(313244)", -- surface0
-    },
   },
 
   decoration = {
@@ -80,17 +76,6 @@ hl.config({
       render_power = 3,
       color = "rgba(1e1e2ebb)",
     },
-  },
-
-  group = {
-    col = {
-      border_active = "rgb(cba6f7)",   -- mauve
-      border_inactive = "rgb(313244)", -- surface0
-    },
-  },
-
-  misc = {
-    background_color = "rgb(1e1e2e)", -- base
   },
 })
 

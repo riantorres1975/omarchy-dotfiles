@@ -5,6 +5,8 @@
 
 @import "theme.css";
 
+@define-color col-gpu #bb9af7;
+
 * {
     border: none;
     border-radius: 0;
@@ -46,22 +48,22 @@ tooltip label {
     text-shadow: none;
     border: none;
     outline: none;
-    padding: 2px 5px;
+    padding: 2px 8px;
     border-radius: 99px;
     margin: 3px 1px;
-    color: inherit;
+    color: @main-fg;
     background: transparent;
-    font-size: 26px;
+    font-size: 13px;
     opacity: 0.25;
     transition: opacity 0.15s ease;
 }
 
 #workspaces button.active {
     background: transparent;
-    color: inherit;
-    padding: 2px 5px;
+    color: @main-fg;
+    padding: 2px 8px;
     border-radius: 99px;
-    font-size: 26px;
+    font-size: 13px;
     opacity: 1;
 }
 
@@ -81,6 +83,7 @@ tooltip label {
     padding: 0;
 }
 
+
 #window {
     padding: 0;
 }
@@ -90,7 +93,9 @@ tooltip label {
 #memory,
 #temperature,
 #disk,
+#custom-gpu,
 #network,
+#bluetooth,
 #pulseaudio,
 #clock.date,
 #clock.time,
@@ -169,8 +174,15 @@ tooltip label {
 
 #disk             { color: @col-disk; }
 
-#network              { color: @col-net; }
+#custom-gpu       { color: @col-gpu; }
+
+#network              { color: @col-net; min-width: 160px; }
 #network.disconnected { color: @col-crit; }
+
+#bluetooth            { color: #89dceb; }
+#bluetooth.off        { color: @col-muted; }
+#bluetooth.disabled   { color: @col-muted; }
+#bluetooth.connected  { color: #89b4fa; }
 
 #pulseaudio       { color: @col-audio; }
 #pulseaudio.muted { color: @col-muted; }

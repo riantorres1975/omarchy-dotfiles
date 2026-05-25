@@ -16,7 +16,7 @@ size = 10
 padding.x = 14
 padding.y = 14
 decorations = "None"
-opacity = 0.90
+opacity = 0.55
 blur = true
 
 [keyboard]
