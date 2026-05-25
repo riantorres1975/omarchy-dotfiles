@@ -26,6 +26,9 @@ require("default.hypr.toggles")
 -- Steam: forzar modo mosaico (sobreescribe el float=true del default de Omarchy)
 o.window({ class = "^steam$", title = "^Steam$" }, { tile = true })
 
+-- Steam Friends List: limitar tamaño al abrir
+o.window({ class = "^steam$", title = "^Friends List$" }, { float = true, size = { 360, 850 }, center = true })
+
 -- Calendario emergente de waybar (click en la fecha)
 o.window("calendar-popup.*", {
   float = true,

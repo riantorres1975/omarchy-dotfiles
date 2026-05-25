@@ -5,6 +5,9 @@
 
 @import "theme.css";
 
+/* Pills un poco más oscuras que el fondo del tema */
+@define-color main-bg #11121c;
+
 @define-color col-gpu #bb9af7;
 
 * {
