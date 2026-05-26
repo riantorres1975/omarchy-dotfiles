@@ -26,6 +26,9 @@ require("default.hypr.toggles")
 -- Terminales: más diferencia entre activa/inactiva (override del default de Omarchy 0.97/0.90)
 o.window("(Alacritty|kitty|com.mitchellh.ghostty|foot)", { opacity = "0.97 0.78" })
 
+-- Web apps / PWAs (brave-<url>-Default): sin transparencia
+o.window("^(brave|chrome|chromium|google-chrome|msedge|microsoft-edge)-.*-Default$", { tag = "-default-opacity", opacity = "1.0 1.0" })
+
 -- Steam: forzar modo mosaico (sobreescribe el float=true del default de Omarchy)
 o.window({ class = "^steam$", title = "^Steam$" }, { tile = true })
 
